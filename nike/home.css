@@ -1,3 +1,48 @@
+body {
+    font-family: 'roboto', sans-serif;
+}
+
+/* nav */
+nav div {
+    font-weight: bolder;
+}
+
+/* jumbotron */
+.jumbotron {
+    background-color: #fff;
+}
+
+.jumbotron div {
+    position: relative;
+    color: white;
+    width: fit-content;
+}
+
+.jumbotron div p {
+    position: absolute;
+    left: 20px;
+}
+
+.jumbotron div p:first-of-type {
+    top: 63%;
+}
+
+.jumbotron div p:last-of-type {
+    top: 65%;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.jumbotron div a button {
+    position: absolute;
+    left: 20px;
+    top: 80%;
+    width: 8%;
+}
+
+/* end of jumbotron */
+
+/* main */
 .flip-card {
     background-color: transparent;
     width: 300px;
@@ -14,6 +59,11 @@
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-inner a {
+    color: #fff;
+    text-decoration: none;
 }
 
 .flip-card:hover .flip-card-inner {
@@ -34,14 +84,37 @@
     color: black;
 }
 
+.flip-card-front img {
+    width: 300px;
+    height: 300px;
+}
+
 .flip-card-back {
     background-color: black;
     color: white;
     transform: rotateY(180deg);
 }
 
-.footer {
+.flip-card-back p:first-of-type {
+    padding-top: 30px;
+}
+
+/* end of main */
+
+/* footer */
+footer {
     margin-top: 100px;
     background-color: #333333;
     padding-top: 60px;
 }
+
+footer div div h5 {
+    color: #c4c4c4;
+}
+
+footer form div label {
+    color: #fff;
+}
+}
+
+/* end of footer */
