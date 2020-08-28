@@ -1,0 +1,65 @@
+body {
+    background-color: black;
+}
+div div div input.form-control{
+    font-weight: bolder;
+    font-size: larger;
+    text-align: right;
+}
+
+.container {
+    width: 450px;
+    height: 460px;
+    margin-top: 10%;
+    background-color: rgb(44, 42, 42);
+}
+
+.container .row {
+    margin: 20px 0 0 0;
+    width: 400px;
+}
+
+div .row input.mb-2 {
+    margin-left: 10px;
+    height: 45px;
+}
+
+.col input {
+    margin-top: 10px;
+    font-size: larger;
+    width: 80px;
+    font-weight: bold;
+    font-family: 'roboto', sans-serif
+}
+
+input.btn.c-clear {
+    width: 280px;
+}
+input.btn.btn-success{
+    width: 180px;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.col input:nth-of-type(n+2) {
+    margin-left: 20px;
+}
+
+.option-calc {
+    color: rgb(240, 255, 157);
+}
+
+.option-calc:hover {
+    color: rgb(240, 255, 157);
+    font-size: large;
+    padding-top: 7px;
+}
+
+.btn:hover {
+    font-size: large;
+    padding-top: 7px;
+}

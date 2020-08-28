@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="calc.css">
+    <script src="calc.js"></script>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div id="body">
+        <div class="container border">
+            <div class="row">
+                <input class="form-control mb-2" type="text" name="" onfocus="clr()" id="hasil" autocomplete="off">
+                <div class="col">
+                    <div class="row">
+                        <input class="btn btn-danger text-warning rounded-pill option-calc c-clear" type="button"
+                            onclick="clr()" value="AC">
+                        <input class="btn btn-secondary rounded-pill option-calc" type="button" onclick="angka('/')"
+                            value="/">
+                    </div>
+                    <div class="row">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(7)" value="7">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(8)" value="8">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(9)" value="9">
+                        <input class="btn btn-secondary rounded-pill option-calc" onclick="angka('*')" type="button"
+                            value="*">
+                    </div>
+
+                    <div class="row">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(4)" value="4">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(5)" value="5">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(6)" value="6">
+                        <input class="btn btn-secondary rounded-pill option-calc" type="button" onclick="angka('-')"
+                            value="-">
+                    </div>
+
+                    <div class="row">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(1)" value="1">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(2)" value="2">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(3)" value="3">
+                        <input class="btn btn-secondary rounded-pill option-calc" type="button" onclick="angka('+')"
+                            value="+">
+                    </div>
+
+                    <div class="row">
+                        <input class="btn btn-danger text-warning rounded-pill" type="button" onclick="remove()"
+                            value="CE">
+                        <input class="btn btn-secondary rounded-pill" type="button" onclick="angka(0)" value="0">
+                        <input class="btn btn-success rounded-pill font-weight-bold" type="button" onclick="hasil()"
+                            value="=">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    
+</body>
+
+</html>
