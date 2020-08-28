@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* nav */
+nav div {
+    font-weight: bolder;
+}
+
+div.main div.card a:hover,
+div.main div.card a {
+    text-decoration: none;
+    color: black;
+}
+
+div.main div.card a p.card-text {
+    color: #fa591d;
+    font-weight: 700;
+    line-height: 22px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+div.main div.card a p.card-title {
+    /* color: orangered; */
+    font-weight: 600;
+    line-height: 19px;
+    font-size: 14px;
+    overflow: hidden;
+    height: 40px;
+    margin-bottom: 0;
+}
+
+div.main div.card {
+    width: 15rem;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.fa-crown,
+.fas.fa-star,
+.far.fa-star {
+    color: gold;
+}
+
+.icon-crown {
+    font-weight: 400;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bd-example-modal-xl {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+#imgModal {
+    width: 250px;
+    height: 290px;
+    object-fit: cover;
+}
+
+img {
+    object-fit: cover;
+}
+
+#hargaModal {
+    font-weight: 700;
+}
+
+#keranjang img{
+    width: 150px;
+}
+
+#keranjang div.col h6{
+    font-weight: 600;
+    display: inline;
+    overflow: hidden;
+
+
+}
+#keranjang div.col p{
+    font-weight: 700;
+    font-size: 14px;
+    color: #fa591d;
+}
+.row .col .card .card-body button{
+    width: 100%;
+}
