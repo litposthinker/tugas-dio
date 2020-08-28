@@ -47,6 +47,11 @@ div.main h4 {
     margin-left: 5%;
     margin-bottom: 20px;
 }
+
+div.main h4.mt-5 {
+    padding-top: 80px;
+}
+
 .scrolling-wrapper {
     display: flex;
 }
@@ -66,10 +71,74 @@ div.scroll:hover::-webkit-scrollbar-track {
     border-radius: 10px;
     border-bottom: 1px;
 }
+
 div.scroll:hover::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #1d2422;
-  }
+}
+
+div.main div.row {
+    width: 95%;
+    padding: 0 8px;
+}
+
+div.main div.row div.col {
+    height: 650px;
+    position: relative;
+    color: white;
+    width: fit-content;
+}
+
+div.main div.row div.col img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+div.main div.row div.col p {
+    position: absolute;
+    font-size: larger;
+    left: 50px;
+    top: 80%;
+}
+
+div.main div.row div.col a button {
+    position: absolute;
+    left: 50px;
+}
+
+div.main div.row div.col a button:first-of-type {
+    top: 87%;
+}
+
+div.main div.row div.col a button:last-of-type {
+    top: 87%;
+    left: 120px;
+}
+
+div.main div.row.row-2 {
+    width: 95%;
+    padding: 0 8px;
+}
+
+div.main div.row.row-2 div.col {
+    height: 570px;
+    position: relative;
+    color: white;
+    width: fit-content;
+}
+
+div.main div.row.row-2 div.col img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+div.main div.row.row-2 div.col a button {
+    position: absolute;
+    left: 50px;
+    top: 87%;
+}
 
 .flip-card {
     background-color: transparent;
@@ -130,6 +199,40 @@ div.scroll:hover::-webkit-scrollbar-thumb {
 
 /* end of main */
 
+/* buy */
+.buy div.modal-body img {
+    width: 350px;
+    margin-left: 10px;
+    height: 440px;
+    object-fit: cover;
+}
+
+.buy div.modal-body div.col p:nth-child(3) {
+    margin-bottom: 0;
+}
+
+.buy div.modal-body div.col button.btn.border {
+    width: 110px;
+    height: 50px;
+}
+
+.active,
+.btn:hover {
+    background-color: #666;
+    color: white;
+}
+
+.buy div.modal-body div.col button.btn {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.buy div.modal-body div.col button.btn.border:nth-of-type(n+7) {
+    margin-bottom: 30px;
+}
+
+/* end of buy */
 /* footer */
 footer {
     margin-top: 100px;
@@ -143,7 +246,6 @@ footer div div h5 {
 
 footer form div label {
     color: #fff;
-}
 }
 
 /* end of footer */

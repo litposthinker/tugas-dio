@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-group">
+            <!-- nama -->
+            <label for="namasiswa">Nama Siswa</label>
+            <input type="namasiswa" class="form-control" id="str_nama" autocomplete="off">
+
+            <!-- Kelas -->
+            <label for="kelas">Kelas</label>
+            <select class="form-control" id="str_kelas">
+                <option value="" selected disabled>Pilih Kelas</option>
+                <option value="X">X</option>
+                <option value="XI">XI</option>
+                <option value="XII">XII</option>
+            </select>
+
+            <!-- alamat -->
+            <label for="Alamat">Alamat</label>
+            <textarea class="form-control" id="str_alamat" rows="3" autocomplete="off"></textarea>
+
+            <!-- button -->
+            <button class="btn btn-primary mt-5" onclick="add()">Simpan</button>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Siswa</th>
+                    <th scope="col">Kelas</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="bodydata">
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editdata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Siswa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- nama -->
+                    <label for="namasiswa">Nama Siswa</label>
+                    <input type="namasiswa" class="form-control" id="modal_nama" autocomplete="off">
+
+                    <!-- Kelas -->
+                    <label for="kelas">Kelas</label>
+                    <select class="form-control" id="modal_kelas">
+                        <option value="" disabled>pilih kelas</option>
+                        <option value="X">X</option>
+                        <option value="XI">XI</option>
+                        <option value="XII">XII</option>
+                    </select>
+
+                    <!-- alamat -->
+                    <label for="Alamat">Alamat</label>
+                    <textarea class="form-control" id="modal_alamat" rows="3" autocomplete="off"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="edited()">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        var semuadata = []
+
+        var data = document.getElementById('bodydata')
+
+        function show() {
+            var nama = semuadata.map(function (nama) {
+                return nama.nama
+            });
+            var kelas = semuadata.map(function (nama) {
+                return nama.kelas
+            });
+            var alamat = semuadata.map(function (nama) {
+                return nama.alamat
+            });
+            data.innerHTML = ""
+
+            for (i = 0; i < nama.length; i++) {
+                no = i + 1
+                data.innerHTML += "<tr>" +
+                    "<th>" + no + "</th>" +
+                    "<td>" + nama[i] + "</td>" +
+                    "<td>" + kelas[i] + "</td>" +
+                    "<td>" + alamat[i] + "</td>" +
+                    "<td>" +
+                    '<button class="btn btn-warning mr-1" onclick="edit(' + i +
+                    ')" data-toggle="modal" data-target="#editdata">Edit</button>' +
+                    '<button class="btn btn-danger" onclick="remove(' + i + ')">hapus</button>' +
+                    '</td>' +
+                    '</tr>'
+            }
+        }
+
+        function add() {
+            var add_nama = document.getElementById('str_nama').value
+            var add_kelas = document.getElementById('str_kelas').value
+            var add_alamat = document.getElementById('str_alamat').value
+
+            if (isNaN(add_nama) && isNaN(add_alamat) && add_kelas != "") {
+
+                semuadata.push({
+                    nama: add_nama,
+                    kelas: add_kelas,
+                    alamat: add_alamat
+                })
+            } else {
+                $("body").prepend(
+                    "<div id='alert-popup' class='alert alert-danger' role='alert'>nama dan alamat tidak boleh kosong ataupun angka saja serta pilih kelas!</div>"
+                );
+                setTimeout(function () {
+                    $("#alert-popup").alert("close");
+                }, 2000);
+            }
+
+            show()
+        }
+
+
+        function remove(i) {
+            semuadata.splice(i, 1);
+            show()
+        }
+        var ubah = []
+
+        function edit(i) {
+            var nama = semuadata.map(function (nama) {
+                return nama.nama
+            });
+            var kelas = semuadata.map(function (nama) {
+                return nama.kelas
+            });
+            var alamat = semuadata.map(function (nama) {
+                return nama.alamat
+            });
+            document.getElementById('modal_nama').value = nama[i]
+            document.getElementById('modal_kelas').value = kelas[i]
+            document.getElementById('modal_alamat').value = alamat[i]
+            ubah.push(i)
+        }
+
+        function edited() {
+            var edit_nama = document.getElementById('modal_nama').value
+            var edit_alamat = document.getElementById('modal_alamat').value
+
+            if (isNaN(edit_nama) && isNaN(edit_alamat)) {
+                var nama = document.getElementById('modal_nama').value
+                var kelas = document.getElementById('modal_kelas').value
+                var alamat = document.getElementById('modal_alamat').value
+                var editedUser = {
+                    nama: nama,
+                    kelas: kelas,
+                    alamat:alamat
+                };
+
+                $('button').attr("data-dismiss", "modal");
+                semuadata = Object.assign([], semuadata, {
+                    [ubah]: editedUser
+                })
+                ubah.pop()
+            } else {
+                $('button').attr("data-dismiss", "");
+                $(".modal").prepend(
+                    "<div id='alert-popup' class='alert alert-danger' role='alert'>nama dan alamat tidak boleh kosong maupun angka saja!</div>"
+                );
+                setTimeout(function () {
+                    $("#alert-popup").alert("close");
+                }, 2000);
+            }
+
+            show()
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
