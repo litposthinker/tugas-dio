@@ -43,6 +43,12 @@ div.main div.card {
     transition: 0.3s;
 }
 
+img.card-top {
+    width: 250px;
+    height: 290px !important;
+    object-fit: cover;
+}
+
 .fa-crown,
 .fas.fa-star,
 .far.fa-star {
@@ -79,22 +85,24 @@ img {
     font-weight: 700;
 }
 
-#keranjang img{
+#keranjang img {
     width: 150px;
 }
 
-#keranjang div.col h6{
+#keranjang div.col h6 {
     font-weight: 600;
     display: inline;
     overflow: hidden;
 
 
 }
-#keranjang div.col p{
+
+#keranjang div.col p {
     font-weight: 700;
     font-size: 14px;
     color: #fa591d;
 }
-.row .col .card .card-body button{
+
+.row .col .card .card-body button {
     width: 100%;
 }

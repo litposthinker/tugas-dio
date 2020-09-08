@@ -1,4 +1,4 @@
-var hargabarang = ["9450000", "4000000", "691000"]
+var hargabarang = ["9450000", "4000000", "691000", "60000", "2500000", "15000000", "8000000", "1899900"]
 var barang = [{
     namabarang: "Emas Antam 10 Gram Logam Mulia",
     hargabarang: "Rp9.450.000",
@@ -23,8 +23,47 @@ var barang = [{
     berat: "750gr",
     kondisi: "Baru",
     asuransi: "Opsional"
+}, {
+    namabarang: "Topeng Megitsune Kitsune Half Setengah",
+    hargabarang: "Rp60.000",
+    distributor: "Daiso",
+    srcgambar: "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/11/18/4002206/4002206_4ebaaf0b-574e-4833-89c5-6ea3cd5ad90d_800_800.webp",
+    berat: "150gr",
+    kondisi: "Baru",
+    asuransi: "Opsional"
+}, {
+    namabarang: "Jasa Mentoring dan debbuging kodingan anda",
+    hargabarang: "Rp2.500.000",
+    distributor: "Dio Selvinus",
+    srcgambar: "https://ecs7.tokopedia.net/img/cache/700/product-1/2020/7/4/9016886/9016886_bd74409d-143a-4644-9c86-3ed6f1c0cfd3_576_576.jpg.webp",
+    berat: "1gr",
+    kondisi: "Baru",
+    asuransi: "Opsional"
+}, {
+    namabarang: "Sony Playstation 5",
+    hargabarang: "Rp15.000.000",
+    distributor: "Sony",
+    srcgambar: "https://ecs7.tokopedia.net/img/cache/700/product-1/2020/6/15/6924567/6924567_6b293614-fe07-4e44-9608-396246012fca_536_536.jpg.webp",
+    berat: "5000gr",
+    kondisi: "Baru",
+    asuransi: "Opsional"
+}, {
+    namabarang: "Mouse Votre berhadiah laptop Acer Swift 7 i7",
+    hargabarang: "Rp8.000.000",
+    distributor: "Acer",
+    srcgambar: "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/9/acd9d179-cd73-4a99-9522-0599ba022506.png.webp",
+    berat: "2400gr",
+    kondisi: "Baru",
+    asuransi: "Opsional"
+}, {
+    namabarang: "Paket Raspberry Pi 4 8GB / 8 GB Mini PC - Full Set / Kit with Case Fan",
+    hargabarang: "Rp1.899.900",
+    distributor: "Arduino",
+    srcgambar: "https://ecs7.tokopedia.net/img/cache/700/product-1/2020/7/18/15037198/15037198_0564be33-0b6a-492d-832e-fdfe1df3a5d5_1454_1454.webp",
+    berat: "500gr",
+    kondisi: "Baru",
+    asuransi: "Ya"
 }, ]
-
 var nama = barang.map(function (barang) {
     return barang.namabarang
 });
@@ -50,7 +89,7 @@ var asuransi = barang.map(function (barang) {
 function tampilinGambar() {
     var tampil = document.getElementById("main")
     for (i = 0; i < nama.length; i++) {
-        tampil.innerHTML += '<div class="card rounded mr-2">' +
+        tampil.innerHTML += '<div class="card rounded mr-auto ml-auto mb-3">' +
             '<a data-toggle="modal" data-target="#exampleModalCenter" href="#" onclick="addmodal(' + i + ')">' +
             '<img class="card-img-top" src="' + source[i] + '">' +
             '<div class="card-body">' +
@@ -76,7 +115,7 @@ var index = []
 function addmodal(l) {
     document.getElementById("namaModal").innerHTML = nama[l]
     document.getElementById("imgModal").src = source[l]
-    document.getElementById("hargaModal").innerHTML = harga[l] + "rb"
+    document.getElementById("hargaModal").innerHTML = harga[l]
     document.getElementById("barangModal").innerHTML = kondisi[l]
     document.getElementById("garansiModal").innerHTML = asuransi[l]
     document.getElementById("beratModal").innerHTML = berat[l]
@@ -84,7 +123,6 @@ function addmodal(l) {
         index.splice(0, 1)
     }
     index.push(l)
-    console.log(index)
 }
 
 nilai = []
@@ -120,7 +158,6 @@ function addtoBag() {
             }
         }
     }
-    console.log(semuanya)
     keranjangBelanja()
 }
 
@@ -141,6 +178,7 @@ function tambahiBarang() {
     keranjangBelanja()
 }
 
+
 // html2
 function keranjangBelanja() {
     var namakeranjang = nilai.map(function (barang) {
@@ -159,7 +197,6 @@ function keranjangBelanja() {
     var button = document.getElementById('diskon')
     var button2 = document.getElementById('totaldiskons')
     var baayar = document.getElementById('totaldibayar')
-    console.log(tampilan)
     tampilan.innerHTML = ""
     for (i = 0; i < namakeranjang.length; i++) {
         tampilan.innerHTML += '<div class="row mt-3 border ml-2">' +
@@ -195,16 +232,13 @@ function keranjangBelanja() {
             button.style.display = "none";
             button2.style.display = "none";
             totalhar.innerHTML = "Rp" + ma
-            console.log(ma)
         }
     }
     semuanya = []
-
 }
 
 function delkeranjang(i) {
     nilai.splice(i, 1);
-    semuanya
     keranjangBelanja()
 }
 
@@ -233,8 +267,6 @@ function minkeranjang(val) {
             }
         }
     }
-    console.log(semuanya)
-
     keranjangBelanja()
 }
 
@@ -259,7 +291,5 @@ function pluskeranjang(val) {
             }
         }
     }
-    console.log(semuanya)
-
     keranjangBelanja()
 }

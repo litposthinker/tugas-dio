@@ -125,20 +125,42 @@
                             <div class="card mt-3 sticky-top mr-3">
                                 <div class="card-body">
                                     <h3>ringkasan belanja</h3>
-                                    <div class="mt-4">
+                                    <div class="mt-4 mb-3">
                                         <span>total harga</span><span id="totalharga" class="float-right"></span>
                                     </div>
                                     <div class="mt-2" id="diskon" style="display: none;">
                                         <span>diskon</span><span id="totaldiskon" class="float-right">10%</span>
                                     </div>
-                                    <div class="mt-2" id="totaldiskons" style="display: none;">
-                                        <span>yang harus dibayar</span><span id="totaldibayar" class="float-right">Rp2</span>
+                                    <div class="mt-2 mb-3" id="totaldiskons" style="display: none;">
+                                        <span>yang harus dibayar</span><span id="totaldibayar"
+                                            class="float-right">Rp2</span>
                                     </div>
-                                    <button class="btn btn-primary text-center" id="belikeranjang">Beli (2)</button>
+                                    <button class="btn btn-primary text-center" id="belikeranjang" data-toggle="modal"
+                                        data-target="#pembayaran">Beli (2)</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="pembayaran" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">pembayaran</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="loading">
+                    <div class="mb-2">total harga <span class="float-right">2</span></div>
+                    <div>masukan nominal <span class="float-right"><input type="text" autocomplete="off"></span></div>
+                    <hr style="display: none;">
+                    <div style="display: none;">uang anda kurang sebesar <span class="float-right"></span></div>
+                    <button class="btn btn-primary float-right">bayar</button>
                 </div>
             </div>
         </div>
