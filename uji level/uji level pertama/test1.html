@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>starbhak market</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="test1.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- dropdown -->
+        <div class="dropdown text-center" id="drop" onclick="formOver()">
+            <span id="span1"></span><span id="span2"></span>
+            <p id="dropdesc">FORM INPUT MASTER dan STOCK DATA BARANG</p>
+        </div>
+        <!-- dropdown selesai -->
+
+        <!-- form -->
+        <div class="form-box" id="box">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Kode Produk</span>
+                </div>
+                <input type="text" class="form-control" placeholder="SM-00" disabled id="kodeproduk">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Nama Produk</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Nama Produk ex. Jus Mangga" id="namaproduk">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Harga Produk</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Rp 10.000" maxlength="50" id="hargaproduk"
+                    autocomplete="off">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Satuan</span>
+                </div>
+                <input type="text" class="form-control" placeholder="pilih satuan" maxlength="50" list="satuan"
+                    id="satuanproduk">
+                <datalist id="satuan">
+                    <option>Gelas</option>
+                    <option>piring</option>
+                    <option>pcs</option>
+                </datalist>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">kategori</span>
+                </div>
+                <input type="text" class="form-control" placeholder="pilih kategori" maxlength="25" list="kategori"
+                    id="kategoriproduk" onchange="kodeprodukChange(this.value)">
+                <datalist id="kategori">
+                    <option>Minuman Dingin</option>
+                    <option>Minuman Hangat</option>
+                    <option>Snack</option>
+                    <option>Makanan</option>
+                </datalist>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">URL Gambar</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Jus/Mangga.jpeg" id="urlproduk" autocomplete="off">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Stock Awal</span>
+                </div>
+                <input type="number" class="form-control" value="1" id="stockproduk" autocomplete="off" min="1">
+            </div>
+            <button type="button" class="btn btn-dark mb-4" onclick="formOver()">Cancel</button>
+            <button type="button" class="btn btn-light mb-4" onclick="simpan()" id="simpan1">simpan</button>
+            <button type="button" class="btn btn-light mb-4" onclick="edited()" id="simpan2">simpan</button>
+        </div>
+        <!-- form selesai -->
+    </div>
+    <!-- tabel -->
+    <div class="container-sm" id="consm">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Kode Produk</th>
+                    <th scope="col">Nama Produk</th>
+                    <th scope="col">Harga Produk</th>
+                    <th scope="col">Satuan Produk</th>
+                    <th scope="col">Kategori Produk</th>
+                    <th scope="col">Stock Produk</th>
+                    <th scope="col">Gambar Produk</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="bodydata" class="text-center pt-4">
+
+            </tbody>
+        </table>
+    </div>
+    <!-- tabel selesai -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+    <script src="test1.js"></script>
+
+</body>
+
+</html>

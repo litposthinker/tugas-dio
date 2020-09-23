@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="test2.css">
+    <script src="https://kit.fontawesome.com/73d4cbd542.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="">Starbhak Market</a>
+        <p class="marquee">
+            <span>
+                I DON'T WANT TO BRAZIL | DON'T @ ME PLEASE | NOICE | BASED | BASED, BASED ON WHAT? | NO THOUGHTS, HEAD
+                EMPTY | KAREN | SIMP | YOU SIMPING | WHO IS JOE | JOE MAMA | TEACH YOU YODA-SPEAK, I WILL | AIGH IMMA
+                BOUTA HEAD OUT | SIKE | OH GOD OH FUCK | BRUH | WEIRD FLEX BUT OK | R/WHOOSH | YEET | COPY PASTA |
+                BANNED THANKS |YESN'T | YOU'RE MOM GAY | SAUCE| TRUE MINT | BASED DEPARTMENT | STOP SIMPING SEPTEMBER | NOT NUT NOVEMBER
+            </span>
+        </p>
+    </nav>
+    <div class="container-fluid mt-2">
+        <div class="row">
+            <div class="col-3 pr-2">
+                <div class="form-group">
+                    <select class="form-control shadow-none" id="order">
+                        <option selected>Take Away</option>
+                        <option>Dine In</option>
+                        <option>Dinner With Me</option>
+                    </select>
+                </div>
+                <div class="mt-3 mb-3 text-center">
+                    <i class="fas fa-user-ninja"></i>
+                    Impostor
+                </div>
+                <!-- keranjang -->
+                <div class="border keranjang">
+                    <div class="row ml-1 mr-1" id="keranjang">
+
+                    </div>
+                </div>
+                <!-- akhir dari keranjang -->
+                <!-- total -->
+                <div class="mt-2 total">
+                    <div class="row">
+                        <div class="col">Total:</div>
+                        <div class="col-5">Rp 10.000</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Discount:</div>
+                        <div class="col-5">10%</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Tax:</div>
+                        <div class="col-5">10%</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">Total Amount:</div>
+                        <div class="col-5">Rp 10.000</div>
+                    </div>
+                </div>
+                <!-- akhir dari total -->
+            </div>
+            <div class="col-9">
+                <!-- pilihan -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control border-right-0 shadow-none"
+                        placeholder="I love USA but SA is silent">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                                <path fill-rule="evenodd"
+                                    d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                            </svg>
+                        </span>
+                        <button class="btn shadow-none ml-1">
+                            <i class="fas fa-filter"></i>
+                        </button>
+                        <div class="btn-group">
+                            <button class="btn shadow-none ml-1 mr-1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- akhir pilihan -->
+                <!-- main -->
+                <div class="border mr-1 main">
+                    <div class="row" id="main">
+
+                    </div>
+                </div>
+                <!-- end of main -->
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+    <script src="test2.js"></script>
+</body>
+
+</html>
