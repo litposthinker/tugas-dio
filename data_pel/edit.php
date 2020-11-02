@@ -1,6 +1,5 @@
 <?php
 include 'koneksi.php';
-// include 'tampil.php';
     $id_pel = $_GET['id'];
     $sql = "SELECT * FROM pelanggan WHERE id_pelanggan='$id_pel'";
     $query = mysqli_query($connect,$sql);

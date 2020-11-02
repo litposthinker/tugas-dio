@@ -32,6 +32,19 @@ function hitungBarang() {
     tampilBarang()
 }
 
+function giveRupiah(number) {
+    number = number.toString();
+    var sisa = number.length % 3;
+    var rupiah = number.substr(0, sisa);
+    var ribuan = number.substr(sisa).match(/\d{3}/g);
+
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+    return rupiah
+}
+
 function tampilBarang() {
     var Basket = document.querySelector('.keranjang');
     var scrollBasket = document.querySelector('#keranjang');
@@ -50,30 +63,22 @@ function tampilBarang() {
     console.log(filtered)
     console.log(count)
     console.log(idbarang)
-
+    var hargatotal = [];
     for (i = 0; i < filtered.length; i++) {
         if (Number(count[filtered[i]]) >= 100) {
             count[filtered[i]] = "99";
         }
-        harga = barang[filtered[i]][1].split(" ")
-        harga = harga[1]
-        harga = harga.split(".")
-        harga = harga.join("")
-        hargaakhir = Number(count[filtered[i]]) * Number(harga)
-        var number_string = hargaakhir.toString()
-        var sisa = number_string.length % 3
-        var rupiah = number_string.substr(0, sisa)
-        var ribuan = number_string.substr(sisa).match(/\d{3}/g)
-
-        if (ribuan) {
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
+        var harga = barang[filtered[i]][1].split(" ");
+        harga = harga[1];
+        harga = harga.split(".");
+        harga = harga.join("");
+        var hargaakhir = Number(count[filtered[i]]) * Number(harga);
+        hargatotal.push(hargaakhir)
 
         tampil.innerHTML += '<div class="w-100 border mt-1">' +
             '<div class="row mt-1">' +
             '<div class="col">' + barang[filtered[i]][0] + '</div>' +
-            '<div class="col-4"> Rp ' + rupiah + '</div>' +
+            '<div class="col-4"> Rp ' + giveRupiah(hargaakhir) + '</div>' +
             '</div>' +
             '<div class="row">' +
             '<div class="col">' +
@@ -114,21 +119,49 @@ function tampilBarang() {
             '</div>' +
             '</div>'
     }
+    console.log(hargatotal)
+    hargatotal = hargatotal.reduce((a, b) => a + b, 0)
+    var tax = hargatotal * 0.10
+    var hasilnya = hargatotal + tax
+    console.log(tax)
+    $('#total').html('Rp ' + giveRupiah(hargatotal));
+    // hargatotal > 500000 ? $("#discount").css("display", "block") : $("#discount").css("display", "none");
+    if (hargatotal > 500000) {
+        var discount = hargatotal * 0.02
+        console.log(discount)
+        $("#discount").html("Rp " + giveRupiah(discount))
+        hasilnya = hargatotal + tax - discount
+    } else {
+        $("#discount").html("Rp  0")
+    }
+    $('#tax').html('Rp ' + giveRupiah(tax));
+    $('#totalamount').html('Rp ' + giveRupiah(hasilnya));
+    if (hargatotal > 1) {
+        $('#bayar').prop('disabled', false);
+    } else {
+        $('#bayar').prop('disabled', true);
+    }
 }
-// 
+
 function ubahNilai(value, val) {
     value = value.toString()
     val = Number(val)
     if (val >= 1) {
-        var i = 0
+        var awal = [];
+        var i = 0;
         while (i < idbarang.length) {
             if (idbarang[i] === value) {
-                idbarang.splice(i, 1);
+                awal.push(idbarang[i])
+                if (awal.length > 1) {
+                    idbarang.splice(i, 1);
+                } else {
+                    ++i;
+                }
             } else {
                 ++i;
             }
         }
-        for (let i = 0; i < val; i++) {
+        for (let i = 0; i < val - 1; i++) {
             idbarang.push(value)
         }
         count[value] = val
@@ -138,10 +171,16 @@ function ubahNilai(value, val) {
             }
         });
     } else if (val === 0) {
-        var i = 0
-        while (i < idbarang.length - 1) {
+        var awal = [];
+        var i = 0;
+        while (i < idbarang.length) {
             if (idbarang[i] === value) {
-                idbarang.splice(i, 1);
+                awal.push(idbarang[i])
+                if (awal.length > 1) {
+                    idbarang.splice(i, 1);
+                } else {
+                    ++i;
+                }
             } else {
                 ++i;
             }
@@ -212,7 +251,9 @@ $('.drag').draggable({
     helper: 'clone',
     cursor: 'grabbing'
 });
+
 $('.keranjang').droppable({
+    cursor: 'pointer',
     tolerance: "pointer",
     drop: function (event, ui) {
         idbarang.push(ui.draggable[0].id);
@@ -231,7 +272,37 @@ $('.keranjang').droppable({
     },
 });
 
-// disable source code review
+$("#filter").click(function () {
+    // $('button').attr("data-dismiss", "");
+    $(".container-fluid").prepend(
+        "<div id='alert-popup' class='alert alert-danger' role='alert'>Under Construction! don't click again!!</div>"
+    );
+    setTimeout(function () {
+        $("#alert-popup").alert("close");
+    }, 2000);
+})
+
+$('#animatedberhasil').on('show.bs.modal', function (e) {
+    setTimeout(function () {
+        $('#modalanimate').hide();
+        $('#modalsucces').show();
+    }, 3000);
+})
+
+function closePage() {
+    $('#modalanimate').show();
+    $('#modalsucces').hide();
+}
+function clock() {
+    var now = new Date();
+    var mins = ('0' + now.getMinutes()).slice(-2);
+    var hr = (now.getHours() + 24) % 12 || 12;
+    var Time = hr + " : " + mins;
+    Time += now.getHours() >= 12 ? " PM" : " AM"
+    $(".jam").html(Time);
+    requestAnimationFrame(clock)
+}
+clock()
 // $(function () {
 //     $(document).keydown(function (objEvent) {
 //         if (objEvent.ctrlKey) {
