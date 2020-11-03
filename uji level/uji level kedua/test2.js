@@ -20,7 +20,7 @@ var scrollContent = document.querySelector('.main');
 if (scrollContent.offsetHeight < scrollContent.scrollHeight) {
     scrollContent.style.overflowY = "scroll";
 } else {
-    Basket.style.overflowY = "";
+    scrollContent.style.overflowY = "";
 }
 
 const resizeObserver = new ResizeObserver(entries => {
@@ -125,7 +125,6 @@ function tampilBarang() {
     var discount = hargatotal * 0.02;
 
     var hasilnya = hargatotal + tax;
-
     if (hargatotal > 10000) {
         $("#discount").html("Rp " + giveRupiah(discount));
         hasilnya = hargatotal + tax - discount;
@@ -163,8 +162,6 @@ function ubahNilai(id, val) {
         for (let i = 0; i < val - 1; i++) {
             idbarang.push(id);
         }
-    } else {
-        delete count[id];
     }
 
     $(document).keydown(function (objEvent) {

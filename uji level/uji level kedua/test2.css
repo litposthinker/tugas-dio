@@ -127,7 +127,9 @@ div.keranjang {
 div.keranjang div#keranjang {
     background-color: var(--bgkeranjang);
 }
-
+div.keranjang div#keranjang div{
+    background-color: #fff;
+}
 div.keranjang div.row div.row div.col {
     margin-left: 4px;
     font-size: 14px;
@@ -219,7 +221,7 @@ div.main {
 
 div.main div.card p.card-text,
 .drag.ui-draggable-dragging p.card-text {
-    color: #007bff;
+    color: var(--blue);
     font-family: 'Roboto Mono', monospace;
     font-weight: 900;
     font-size: 20px;
