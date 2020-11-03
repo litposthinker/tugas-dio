@@ -1,28 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Orbitron:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+:root {
+    --biruinput: rgb(72, 160, 255);
+    --bgkeranjang: #f5faff;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     overflow: hidden;
-}
-.jamdigital {
-    /* background-color: #e9e64c; */
-    border-radius: 15px;
 }
 
 .jam {
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
-    font-size: 17px;
-    margin: 6px;
+    font-size: 18px;
+    width: 110px;
+    margin: 6px !important;
     transition: .4s;
     user-select: none;
 }
+
 /* bayar */
 .loader,
 .loader:before,
 .loader:after {
     background: #958e8e;
-    /* -webkit-animation: load1 1s infinite ease-in-out; */
     animation: load1 1s infinite ease-in-out;
     width: 1em;
     height: 4em;
@@ -34,10 +36,7 @@ body {
     margin: 88px auto;
     position: relative;
     font-size: 11px;
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
     transform: translateZ(0);
-    -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
 }
 
@@ -58,21 +57,6 @@ body {
     left: 1.5em;
 }
 
-@-webkit-keyframes load1 {
-
-    0%,
-    80%,
-    100% {
-        box-shadow: 0 0;
-        height: 4em;
-    }
-
-    40% {
-        box-shadow: 0 -2em;
-        height: 5em;
-    }
-}
-
 @keyframes load1 {
 
     0%,
@@ -91,10 +75,12 @@ body {
 .modal-body div#modalanimate {
     height: 150px;
 }
-.modal-body div#modalsucces img{
+
+.modal-body div#modalsucces img {
     height: 180px;
 }
-.modal-body div#modalsucces{
+
+.modal-body div#modalsucces {
     height: 238px;
 }
 
@@ -102,8 +88,9 @@ body {
 /* right */
 /* dropdown */
 #order {
-    background-color: rgb(72, 160, 255) !important;
+    background-color: var(--biruinput) !important;
     color: #fff;
+    cursor: pointer;
 }
 
 #order option:not(:checked) {
@@ -122,7 +109,7 @@ div.row div.col-3 div.mt-3 {
     height: 37px;
     border-radius: 3px;
     width: 100%;
-    background-color: rgb(72, 160, 255);
+    background-color: var(--biruinput);
     color: #fff;
 }
 
@@ -131,10 +118,14 @@ div.row div.col-3 i {
 }
 
 div.keranjang {
-    height: 350px;
+    height: 356px;
     overflow: hidden;
-    background-color: #f5faff;
+    background-color: var(--bgkeranjang);
     /* overflow-y: scroll; */
+}
+
+div.keranjang div#keranjang {
+    background-color: var(--bgkeranjang);
 }
 
 div.keranjang div.row div.row div.col {
@@ -142,18 +133,6 @@ div.keranjang div.row div.row div.col {
     font-size: 14px;
     font-weight: 600;
 }
-
-div.keranjang div.row {
-    background-color: #fff;
-}
-
-/* div.keranjang .tabeltotal {
-    display: block;
-} */
-/* div#keranjang input:disabled{
-    background-color: #fdfeff;
-} */
-
 
 div.keranjang div.row div.row.mt-1 div.col-4 {
     font-family: 'Roboto Mono', monospace;
@@ -183,8 +162,9 @@ div.keranjang div.row div.col div.row div.col-8 input,
 }
 
 /* total */
-.total {
+.total div.row {
     font-size: 14px;
+    padding-left: 10px;
 }
 
 .total div.row div:last-of-type {
@@ -192,10 +172,6 @@ div.keranjang div.row div.col div.row div.col-8 input,
         monospace;
 }
 
-.total div.row:last-of-type {
-    background-color: #007bff;
-    color: #f5faff;
-}
 
 /* akhir dari total */
 /* akhir dari right */
@@ -232,19 +208,9 @@ div.row div .form-control:focus {
     border-color: rgb(206, 212, 218);
 }
 
-div.row div div.input-group.mb-3 div.input-group-append div .btn,
-div.row div div.input-group.mb-3 div.input-group-append .btn {
-    border-radius: 100% !important;
-    width: 40px;
-}
-
-div.row div div.input-group.mb-3 div.input-group-append .btn:hover {
-    background-color: rgb(221, 221, 221);
-}
-
 div.main {
     height: 500px;
-    background-color: #f5faff;
+    background-color: var(--bgkeranjang);
 }
 
 /* akhir dari left */
@@ -256,7 +222,6 @@ div.main div.card p.card-text,
     color: #007bff;
     font-family: 'Roboto Mono', monospace;
     font-weight: 900;
-    /* line-height: 22px; */
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -264,7 +229,6 @@ div.main div.card p.card-text,
 div.main div.card p.card-title,
 .drag.ui-draggable-dragging p.card-title {
     font-weight: 600;
-    /* line-height: 19px; */
     font-size: 15px;
     overflow: hidden;
     margin-bottom: 0;
@@ -273,14 +237,12 @@ div.main div.card p.card-title,
 .card,
 .drag.ui-draggable-dragging {
     width: 14rem;
-    /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
 img.card-img-top,
 .drag.ui-draggable-dragging img.card-img-top {
-    /* margin-left: 10px;  */
     margin: 8px 0 4px 11px;
     width: 200px;
     height: 200px !important;
@@ -312,8 +274,6 @@ img.card-img-top,
     display: inline-block;
     padding-left: 100%;
     color: #ffffff;
-    /* show the marquee just outside the paragraph */
-    will-change: transform;
     animation: marquee 30s linear infinite;
 }
 
@@ -324,23 +284,5 @@ img.card-img-top,
 
     100% {
         transform: translate(-100%, 0);
-    }
-}
-
-
-/* Respect user preferences about animations */
-
-@media (prefers-reduced-motion: reduce) {
-    .marquee {
-        white-space: normal
-    }
-
-    .marquee span {
-        animation-iteration-count: 1;
-        animation-duration: 0.01;
-        /* instead of animation: none, so an animationend event is 
-     * still available, if previously attached.
-     */
-        padding-left: 0;
     }
 }
