@@ -121,7 +121,6 @@ div.keranjang {
     height: 356px;
     overflow: hidden;
     background-color: var(--bgkeranjang);
-    /* overflow-y: scroll; */
 }
 
 div.keranjang div#keranjang {
@@ -245,8 +244,8 @@ div.main div.card p.card-title,
 
 img.card-img-top,
 .drag.ui-draggable-dragging img.card-img-top {
-    margin: 8px 0 4px 11px;
-    width: 200px;
+    margin: 8px 11px 4px 11px;
+    width: auto;
     height: 200px !important;
     object-fit: cover;
 }

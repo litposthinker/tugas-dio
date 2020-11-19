@@ -3,9 +3,15 @@ var barang = [
     ["Mie Instan", "Rp 5.000", "https://upload.wikimedia.org/wikipedia/commons/7/7f/Korea_Ramyeon.jpg"],
     ["Es Cincau", "Rp 8.000", "https://www.resepkuerenyah.com/wp-content/uploads/2016/01/es_cincau_hijau_700.jpg"],
     ["Nasi Kuning", "Rp 5.000", "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/10/6/494062/494062_dd40d962-0b4e-4132-baf6-8727627f414a_1358_1358.jpg"],
-    ["Nasi Kuning", "Rp 5.000", "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/10/6/494062/494062_dd40d962-0b4e-4132-baf6-8727627f414a_1358_1358.jpg"]
+    ["Ramen", "Rp 10.000", "https://upload.wikimedia.org/wikipedia/commons/f/fc/Soy_ramen.jpg"],
+    ["Tamagoyaki", "Rp 8.000", "https://img-global.cpcdn.com/recipes/72e064886d1d570c/1200x630cq70/photo.jpg"],
+    ["Chiken Katsu", "Rp 12.000", "https://cdn.yummy.co.id/content-images/images/20200115/UxI3zfZJmFGB29jlA7pBT0cxcNEdFuhW-31353739303638363838d41d8cd98f00b204e9800998ecf8427e_800x800.jpg"],
+    ["Ebi Furai", "Rp 16.000", "https://img-global.cpcdn.com/recipes/c60cbbb2086da76d/751x532cq70/ebi-furai-salad-mayonaise-ala-ala-hokben-foto-resep-utama.jpg"],
+    ["Takoyaki", "Rp 12.000", "https://upload.wikimedia.org/wikipedia/commons/c/cb/Takoyaki.jpg"],
+    ["Manju", "Rp 7.000", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Carinto_manjyu.JPG/1200px-Carinto_manjyu.JPG"],
+    ["Daifuku", "Rp 8.000", "https://upload.wikimedia.org/wikipedia/commons/a/a5/Daifuku_1.jpg"],
+    ["Dorayaki", "Rp 6.000", "https://blog.tokowahab.com/wp-content/uploads/2019/11/Resep-Kue-Dorayaki-Isi-Cokelat.jpg"]
 ]
-
 for (i = 0; i < barang.length; i++) {
     document.getElementById("main").innerHTML += '<div class="card rounded mb-2 ml-3 mr-1 mt-2 drag" id="' + i + '" onclick="tambahBarang(this.id)">' +
         '<img class="card-img-top" src="' + barang[i][2] + '">' +
@@ -16,14 +22,30 @@ for (i = 0; i < barang.length; i++) {
         '</div>'
 }
 
-var scrollContent = document.querySelector('.main');
-if (scrollContent.offsetHeight < scrollContent.scrollHeight) {
-    scrollContent.style.overflowY = "scroll";
-} else {
-    scrollContent.style.overflowY = "";
+function reSearch(strSearch) {
+    barang.forEach(function (item, i) {
+        let titlelower = item[0].toLowerCase()
+        if (strSearch.toLowerCase() == titlelower.slice(0, strSearch.length)) {
+            $('#' + i).show();
+        } else if (strSearch) {
+            $('#' + i).hide();
+        } else {
+            $('#' + i).show();
+        }
+    })
 }
 
-const resizeObserver = new ResizeObserver(entries => {
+const resizeMain = new ResizeObserver(entries => {
+    var scrollContent = document.querySelector('.main');
+    if (entries[0].target.clientHeight > scrollContent.offsetHeight) {
+        scrollContent.style.overflowY = "scroll";
+    } else {
+        scrollContent.style.overflowY = "";
+    }
+})
+resizeMain.observe(document.querySelector('#main'));
+
+const resizeKeranjang = new ResizeObserver(entries => {
     var Basket = document.querySelector('.keranjang');
     if (entries[0].target.clientHeight > Basket.offsetHeight) {
         Basket.style.overflowY = "scroll"
@@ -31,7 +53,7 @@ const resizeObserver = new ResizeObserver(entries => {
         Basket.style.overflowY = ""
     }
 })
-resizeObserver.observe(document.querySelector('#keranjang'));
+resizeKeranjang.observe(document.querySelector('#keranjang'));
 
 var idbarang = [];
 var count = {};
