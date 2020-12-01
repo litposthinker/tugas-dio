@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* div dropdown dan isinya */
+div.dropdown {
+    color: #ffffff;
+    background: #e74c3c;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    font-size: 1.1em;
+    position: relative;
+}
+
+div.dropdown span {
+    position: absolute;
+    background: white;
+    border-radius: 2px;
+}
+
+div.dropdown span:first-of-type {
+    top: 25%;
+    bottom: 25%;
+    width: 5px;
+    left: 23px;
+}
+
+div.dropdown span:last-of-type {
+    left: 25%;
+    right: 25%;
+    height: 5px;
+    top: 23px;
+}
+
+
+/* div dropdown selesai */
+
+/* form box */
+div.form-box{
+    font-size: 1.6em;
+    color: #ffffff;
+}
+div.form-box div.input-group.mb-3:first-of-type input:disabled {
+    background-color: #e74c3c;
+    -webkit-text-fill-color: #ffffff;
+    font-size: large;
+    font-weight: bold;
+    border: #e74c3c;
+}
+
+
+div.form-box div.input-group.mb-3 div.input-group-prepend span.input-group-text {
+    background-color: #e74c3c;
+    border: #e74c3c;
+    color: #ffffff;
+    font-size: large;
+    width: 140px;
+}
+
+div.form-box div.input-group.mb-3 input {
+    font-size: large;
+}
+
+div.form-box input.form-control[type="number"] {
+    margin-right: 320px;
+}
+
+div.form-box button {
+    width: 130px;
+}
+
+/* form box selesai */
+
+/* tabel */
+div.container-sm {
+    margin-top: 0 !important;
+    transition: margin-top 1.4s ease;
+}
+
+div.container-sm table tbody img {
+    width: 100px;
+}
+
+div.container-sm table tbody th,
+div.container-sm table tbody td {
+    padding-top: 3%;
+}
+
+div.container-sm table tbody td:nth-of-type(7) {
+    padding-top: 1%;
+}

@@ -10,7 +10,7 @@ var barang = [
     ["Takoyaki", "Rp 12.000", "https://upload.wikimedia.org/wikipedia/commons/c/cb/Takoyaki.jpg"],
     ["Manju", "Rp 7.000", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Carinto_manjyu.JPG/1200px-Carinto_manjyu.JPG"],
     ["Daifuku", "Rp 8.000", "https://upload.wikimedia.org/wikipedia/commons/a/a5/Daifuku_1.jpg"],
-    ["Dorayaki", "Rp 6.000", "https://blog.tokowahab.com/wp-content/uploads/2019/11/Resep-Kue-Dorayaki-Isi-Cokelat.jpg"]
+    ["Dorayaki", "Rp 6.000.000", "https://blog.tokowahab.com/wp-content/uploads/2019/11/Resep-Kue-Dorayaki-Isi-Cokelat.jpg"]
 ]
 for (i = 0; i < barang.length; i++) {
     document.getElementById("main").innerHTML += '<div class="card rounded mb-2 ml-3 mr-1 mt-2 drag" id="' + i + '" onclick="tambahBarang(this.id)">' +
@@ -59,7 +59,7 @@ var idbarang = [];
 var count = {};
 
 function hitungBarang() {
-    var counting = {};
+    var  counting = {};
     idbarang.forEach(function (i) {
         counting[i] = (counting[i] || 0) + 1;
     });
@@ -95,7 +95,7 @@ function tampilBarang() {
 
     var hargatotal = [];
     for (i = 0; i < filtered.length; i++) {
-        var hargaakhir = Number(count[filtered[i]]) * Number(barang[filtered[i]][1].replace(/\R\S+/g, '').replace(".", ""));
+        var hargaakhir = Number(count[filtered[i]]) * Number(barang[filtered[i]][1].replace(/\R\S+/g, '').replace(/\./g, ""));
         hargatotal.push(hargaakhir);
 
         tampil.innerHTML += '<div class="w-100 border mt-1">' +
@@ -142,6 +142,7 @@ function tampilBarang() {
             '</div>' +
             '</div>'
     }
+
     hargatotal = hargatotal.reduce((a, b) => a + b, 0);
     var tax = hargatotal * 0.10;
     var discount = hargatotal * 0.02;

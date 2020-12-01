@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="asas_black.css">
+    <title>asas_black||@dio-selvinus</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col position-absolute w-25 pl-3 bg-light pt-3 h-100 pr-0" id="leftWing">
+            <img class="ml-3"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Black_Joseph.jpg/220px-Black_Joseph.jpg"
+                alt="Joseph Black" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Black_Joseph.jpg/330px-Black_Joseph.jpg 1.5x,
+        //upload.wikimedia.org/wikipedia/commons/thumb/9/94/Black_Joseph.jpg/440px-Black_Joseph.jpg 2x">
+            <button class="btn btn-dark rounded-0 position-absolute" onclick="buttonClicked()">
+                <span id="butn"> > </span>
+            </button>
+            <p class="mt-2">Pada pencampuran dua zat, banyaknya kalor yang dilepas oleh zat yang suhunya lebih tinggi
+                sama dengan
+                banyaknya kalor yang diterima zat yang suhunya lebih rendah</p>
+            <h6>Rumus: <span class="text-capitalize p-1" style="border: 2px solid
+                !important;">(M<sub>1</sub>&times;c<sub>1</sub>) (t<sub>1</sub>&times;t<sub>a</sub>) =
+                    (M<sub>2</sub>&times;c<sub>2</sub>) (t<sub>a</sub>&times;t<sub>2</sub>) </span></h6>
+        </div>
+        <div class="col p-0" id="rightWing" style="z-index: -1">
+            <div class="container mt-2">
+                <h1 class="text-center">ASAS BLACK</h1>
+                <div class="row w-75 mr-auto ml-auto">
+                    <canvas id="chart" width="2" height="1"></canvas>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-4 pl-0">
+                        <select class="form-control bg-secondary text-white" id="pilihKalor1"
+                            onchange="ubahKalor(this.id)">
+                            <option value="air" selected>Air</option>
+                            <option value="es">Es</option>
+                            <option value="uapAir">Uap Air</option>
+                            <option value="alumunium">Alumunium</option>
+                            <option value="besiBaja">Besi atau Baja</option>
+                            <option value="emas">Emas</option>
+                            <option value="gliserin">Gliserin</option>
+                            <option value="kaca">Kaca</option>
+                            <option value="kayu">Kayu</option>
+                            <option value="kuningan">Kuningan</option>
+                            <option value="marmer">Marmer</option>
+                            <option value="minyakTanah">Minyak tanah</option>
+                            <option value="perak">Perak</option>
+                            <option value="raksa">Raksa</option>
+                            <option value="kustom">Kustom</option>
+                        </select>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <input type="number" class="form-control shadow-none rounded-0"
+                                    placeholder="Massa Benda" spellcheck="false" id="massaBenda1">
+                                <select class="w-100 border" onchange="ubahKg(this.value,this.id)" id="pilihMassa1">
+                                    <option value="kg" selected>Kilogram</option>
+                                    <option value="g">gram</option>
+                                </select>
+                            </div>
+                            <div class="col pl-0">
+                                <input type="number" class="form-control shadow-none rounded-0"
+                                    placeholder="Kalor Jenis" spellcheck="false" id="kalorJenis1" value="4200"
+                                    oninput="ubahKalornya(this.value,this.id)">
+                                <select class="w-100 border" id="pilihJoule1" onchange="ubahJoule(this.value,this.id)">
+                                    <option value="joule" selected>J/kg°C</option>
+                                    <option value="kal">kal/g°C</option>
+                                </select>
+                            </div>
+                            <div class="col pl-0">
+                                <input type="number" class="form-control shadow-none rounded-0" placeholder="Suhu Awal"
+                                    spellcheck="false" id="suhuAwal1">
+                                <select class="w-100 border" disabled>
+                                    <option value="celsius" selected>Celsius</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control bg-secondary text-white" id="pilihKalor2"
+                            onchange="ubahKalor(this.id)">
+                            <option value="air">Air</option>
+                            <option value="es">Es</option>
+                            <option value="uapAir">Uap Air</option>
+                            <option value="alumunium">Alumunium</option>
+                            <option value="besiBaja">Besi atau Baja</option>
+                            <option value="emas">Emas</option>
+                            <option value="gliserin">Gliserin</option>
+                            <option value="kaca">Kaca</option>
+                            <option value="kayu">Kayu</option>
+                            <option value="kuningan">Kuningan</option>
+                            <option value="marmer">Marmer</option>
+                            <option value="minyakTanah">Minyak tanah</option>
+                            <option value="perak">Perak</option>
+                            <option value="raksa">Raksa</option>
+                            <option value="kustom" selected>Kustom</option>
+                        </select>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <input type="number" class="form-control shadow-none rounded-0"
+                                    placeholder="Massa Benda" spellcheck="false" id="massaBenda2">
+                                <select class="w-100 border" onchange="ubahKg(this.value)" id="pilihMassa2">
+                                    <option value="kg" selected>Kilogram</option>
+                                    <option value="g">gram</option>
+                                </select>
+                            </div>
+                            <div class="col pl-0">
+                                <input type="number" class="form-control shadow-none rounded-0"
+                                    placeholder="Kalor Jenis" spellcheck="false" id="kalorJenis2" value="0"
+                                    oninput="ubahKalornya(this.value,this.id)">
+                                <select class="w-100 border" id="pilihJoule2" onchange="ubahJoule(this.value,this.id)">
+                                    <option value="joule" selected>J/kg°C</option>
+                                    <option value="kal">kal/g°C</option>
+                                </select>
+                            </div>
+                            <div class="col pl-0">
+                                <input type="number" class="form-control shadow-none rounded-0" placeholder="Suhu Awal"
+                                    spellcheck="false" id="suhuAwal2">
+                                <select class="w-100 border" disabled>
+                                    <option value="celsius" selected>Celsius</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 pl-0 mt-5">
+                        <div class="input-group mb-3 w-75">
+                            <div class="input-group-prepend">
+                                <span class=" mr-3">
+                                    <button class="btn btn-dark text-white" onclick="hitung()"> = </button>
+                                </span>
+                            </div>
+                            <input type="number" spellcheck="false" id="hasil" class="form-control" placeholder="Hasil">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+        integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+    <script src="asas_black.js">
+
+    </script>
+</body>
+
+</html>
