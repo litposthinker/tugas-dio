@@ -10,7 +10,7 @@ var barang = [
     ["Takoyaki", "Rp 12.000", "https://upload.wikimedia.org/wikipedia/commons/c/cb/Takoyaki.jpg"],
     ["Manju", "Rp 7.000", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Carinto_manjyu.JPG/1200px-Carinto_manjyu.JPG"],
     ["Daifuku", "Rp 8.000", "https://upload.wikimedia.org/wikipedia/commons/a/a5/Daifuku_1.jpg"],
-    ["Dorayaki", "Rp 6.000.000", "https://blog.tokowahab.com/wp-content/uploads/2019/11/Resep-Kue-Dorayaki-Isi-Cokelat.jpg"]
+    ["Dorayaki", "Rp 6.000", "https://blog.tokowahab.com/wp-content/uploads/2019/11/Resep-Kue-Dorayaki-Isi-Cokelat.jpg"]
 ]
 for (i = 0; i < barang.length; i++) {
     document.getElementById("main").innerHTML += '<div class="card rounded mb-2 ml-3 mr-1 mt-2 drag" id="' + i + '" onclick="tambahBarang(this.id)">' +
@@ -59,7 +59,7 @@ var idbarang = [];
 var count = {};
 
 function hitungBarang() {
-    var  counting = {};
+    var counting = {};
     idbarang.forEach(function (i) {
         counting[i] = (counting[i] || 0) + 1;
     });
@@ -82,6 +82,27 @@ function giveRupiah(number) {
         rupiah += separator + ribuan.join('.');
     }
     return rupiah;
+}
+
+function tampilBayar(idBayar, countBayar) {
+    var tampil = document.getElementById("table-bayar");
+    tampil.innerHTML = "";
+    var filtered = idBayar.reduce(function (a, b) {
+        if (a.indexOf(b) < 0) a.push(b);
+        return a;
+    }, []);
+
+    for (i = 0; i < filtered.length; i++) {
+        var hargaakhir = Number(countBayar[filtered[i]]) * Number(barang[filtered[i]][1].replace(/\R\S+/g, '').replace(/\./g, ""));
+        no = i + 1
+        tampil.innerHTML += '<tr>' +
+            '<td>' + no + '</td>' +
+            '<td>' + barang[filtered[i]][0] + '</td>' +
+            '<td>' + barang[filtered[i]][1] + '</td>' +
+            '<td>' + countBayar[filtered[i]] + '</td>' +
+            '<td>Rp ' + giveRupiah(hargaakhir) + '</td>' +
+            '</tr>'
+    }
 }
 
 function tampilBarang() {
@@ -145,12 +166,12 @@ function tampilBarang() {
 
     hargatotal = hargatotal.reduce((a, b) => a + b, 0);
     var tax = hargatotal * 0.10;
-    var discount = hargatotal * 0.02;
+    var discount = hargatotal * 0.05;
 
     var hasilnya = hargatotal + tax;
     if (hargatotal > 10000) {
         $("#discount").html("Rp " + giveRupiah(discount));
-        hasilnya = hargatotal + tax - discount;
+        hasilnya = hasilnya - discount;
     } else {
         $("#discount").html("Rp  0");
     }
@@ -158,8 +179,14 @@ function tampilBarang() {
     $('#total').html('Rp ' + giveRupiah(hargatotal));
     $('#tax').html('Rp ' + giveRupiah(tax));
     $('#totalamount').html('Rp ' + giveRupiah(hasilnya));
-
-    hargatotal > 0 ? $('#bayar').prop('disabled', false) : $('#bayar').prop('disabled', true);
+    if (hargatotal > 0) {
+        $('#bayar').prop('disabled', false)
+        $('#bayar span').html(filtered.length)
+    } else {
+        $('#bayar').prop('disabled', true)
+        $('#bayar span').html('')
+    }
+    // hargatotal > 0 ? $('#bayar').prop('disabled', false) : $('#bayar').prop('disabled', true);
 }
 
 function ubahNilai(id, val) {
@@ -269,16 +296,16 @@ $('.keranjang').droppable({
 });
 
 $('#animatedberhasil').on('show.bs.modal', function (e) {
+    var idBayar = idbarang;
+    var countBayar = count;
+    idbarang = [];
+    hitungBarang();
+    tampilBayar(idBayar, countBayar);
     setTimeout(function () {
         $('#modalanimate').hide();
         $('#modalsucces').show();
     }, 3000);
 });
-
-function closePage() {
-    $('#modalanimate').show();
-    $('#modalsucces').hide();
-}
 
 setInterval(function () {
     var now = new Date();

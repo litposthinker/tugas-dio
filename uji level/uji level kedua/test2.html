@@ -27,21 +27,31 @@
         </p>
     </nav>
     <!-- Modal animasi -->
-    <div class="modal fade" id="animatedberhasil" tabindex="-1" role="dialog" aria-hidden="true" onclick="closePage()">
+    <div class="modal fade" id="animatedberhasil" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" onclick="closePage()" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title">Payment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="modalanimate">
-                        <div class="loader"></div>
-                    </div>
-                    <div id="modalsucces" class="center text-center" style="display: none;">
-                        <img src="../../asset/bayar.png" alt="succes">
-                        <h2>Pembayaran berhasil</h2>
+                    <div id="modalsucces" class="center text-center">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">no</th>
+                                    <th scope="col">nama</th>
+                                    <th scope="col">harga</th>
+                                    <th scope="col">jumlah</th>
+                                    <th scope="col">total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-bayar">
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -89,7 +99,7 @@
                 </div>
                 <!-- akhir dari total -->
                 <button class="btn btn-primary float-right w-50" disabled id="bayar" data-toggle="modal"
-                    data-target="#animatedberhasil">Membayar</button>
+                    data-target="#animatedberhasil">Membayar (<span>0</span>)</button>
             </div>
             <div class="col-9">
                 <!-- pilihan -->
