@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&family=Orbitron:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --biruinput: rgb(72, 160, 255);
+    --bgkeranjang: #f5faff;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+}
+
+.jam {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    width: 110px;
+    margin: 6px !important;
+    transition: .4s;
+    user-select: none;
+}
+
+/* bayar */
+
+.modal-body div#modalsucces {
+    height: fit-content;
+    background-color: #ffffff;
+}
+
+/* akhir dari bayar */
+/* right */
+/* dropdown */
+#order {
+    background-color: var(--biruinput) !important;
+    color: #fff;
+    cursor: pointer;
+}
+
+#order option:not(:checked) {
+    background-color: #fff;
+    color: #000;
+}
+
+/* end of dropdown */
+select {
+    width: 400px;
+    text-align-last: center;
+}
+
+div.row div.col-3 div.mt-3 {
+    padding-top: 5px;
+    height: 37px;
+    border-radius: 3px;
+    width: 100%;
+    background-color: var(--biruinput);
+    color: #fff;
+}
+
+div.row div.col-3 i {
+    color: #000;
+}
+
+div.keranjang {
+    height: 356px;
+    overflow: hidden;
+    background-color: var(--bgkeranjang);
+}
+
+div.keranjang div#keranjang {
+    background-color: var(--bgkeranjang);
+}
+
+div.keranjang div#keranjang div {
+    background-color: #fff;
+}
+
+div.keranjang div.row div.row div.col {
+    margin-left: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+div.keranjang div.row div.row.mt-1 div.col-4 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+div.keranjang div.row div.col div.row div.col-8 {
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+}
+
+div.keranjang div.row div.col div.row div.col-4 {
+    font-size: 12px;
+}
+
+div.keranjang div.row div.col div.row div.col-8 input,
+div.keranjang div.row div.col div.row div.col-8 div button {
+    height: 25px;
+    width: 40px;
+}
+
+div.keranjang div.row div.col div.row div.col-8 input,
+.inputan {
+    width: 50px;
+}
+
+/* total */
+.total div.row {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.total div.row div:last-of-type {
+    font-family: 'Roboto Mono',
+        monospace;
+}
+
+
+/* akhir dari total */
+/* akhir dari right */
+
+/* left */
+nav.navbar .navbar-brand {
+    font-family: 'Suez One',
+        serif;
+    /* font-weight: bold; */
+    /* font-style: italic; */
+    line-height: 15px;
+    font-size: 20px;
+}
+
+div.row div {
+    padding: 0;
+}
+
+div.row {
+    margin: 0;
+}
+
+div.row div div.input-group.mb-3 div.input-group-append span.input-group-text {
+    background-color: #ffffff;
+    border-left: #ffffff;
+    font-size: large;
+    height: 38px;
+}
+
+div.row div div.input-group.mb-3 input {
+    font-weight: 500;
+}
+
+div.row div .form-control:focus {
+    border-color: rgb(206, 212, 218);
+}
+
+div.main {
+    height: 500px;
+    background-color: var(--bgkeranjang);
+}
+
+/* akhir dari left */
+
+/* card */
+
+div.main div.card p.card-text,
+.drag.ui-draggable-dragging p.card-text {
+    color: var(--blue);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+div.main div.card p.card-title,
+.drag.ui-draggable-dragging p.card-title {
+    font-weight: 600;
+    font-size: 15px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.card,
+.drag.ui-draggable-dragging {
+    width: 14rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+img.card-img-top,
+.drag.ui-draggable-dragging img.card-img-top {
+    margin: 8px 11px 4px 11px;
+    width: auto;
+    height: 200px !important;
+    object-fit: cover;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:active,
+.drag.ui-draggable-dragging {
+    cursor: grabbing;
+}
+
+/* akhir dari card */
+
+/* iklan */
+.marquee {
+    width: 85%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    color: #ffffff;
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}

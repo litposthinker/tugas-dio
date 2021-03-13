@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&family=Orbitron:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --biruinput: rgb(72, 160, 255);
+    --bgkeranjang: #f5faff;
+}
+
+.jam {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    width: 110px;
+    margin: 6px !important;
+    transition: .4s;
+    user-select: none;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav.navbar .navbar-brand {
+    font-family: 'Suez One',
+        serif;
+    /* font-weight: bold; */
+    /* font-style: italic; */
+    line-height: 15px;
+    font-size: 20px;
+}
+
+/* form box */
+div.form-box {
+    font-size: 1.6em;
+    color: #ffffff;
+}
+
+
+div.form-box div.input-group.mb-3 div.input-group-prepend span.input-group-text {
+    background-color: #e74c3c;
+    border: #e74c3c;
+    color: #ffffff;
+    font-size: large;
+    width: 140px;
+}
+
+div.form-box div.input-group.mb-3 input {
+    font-size: large;
+}
+
+div.form-box input.form-control[type="number"] {
+    margin-right: 320px;
+}
+
+div.form-box button {
+    width: 130px;
+}
+
+/* form box selesai */
